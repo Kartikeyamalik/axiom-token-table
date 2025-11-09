@@ -119,6 +119,6 @@ scripts/
 ## Deliverables
 
 - GitHub Repo: https://github.com/Kartikeyamalik/axiom-token-table
-- Live Deployment: https://axiom-token-table-project.vercel.app/
-- Responsive Layout Snapshots: Added inside `/snapshots` directory
-- Video Demo (1-2 min): LINK WILL BE ADDED AFTER RECORDING
+- Live Deployment (Vercel): https://axiom-token-table-project.vercel.app
+- Responsive Layout Snapshots: `/snapshots`
+- Demo Video (YouTube): https://youtu.be/HeoIergbQC4
