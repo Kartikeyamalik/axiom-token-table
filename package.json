@@ -1,0 +1,48 @@
+{
+  "name": "axiom-token-table",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint",
+    "playwright:install": "npx playwright install",
+    "snapshots": "node scripts/snapshots.mjs",
+    "lhci:collect": "lhci collect",
+    "lhci:assert": "lhci assert",
+    "lhci:upload": "lhci upload --target=temporary-public-storage",
+    "lhci": "lhci autorun"
+  },
+  "dependencies": {
+    "@radix-ui/react-dialog": "1.1.1",
+    "@radix-ui/react-popover": "1.1.1",
+    "@radix-ui/react-tooltip": "1.0.7",
+    "@reduxjs/toolkit": "2.2.5",
+    "@tanstack/react-query": "5.51.3",
+    "class-variance-authority": "0.7.0",
+    "clsx": "2.1.1",
+    "framer-motion": "11.3.27",
+    "immer": "10.1.1",
+    "next": "14.2.10",
+    "react": "18.3.1",
+    "react-dom": "18.3.1",
+    "react-error-boundary": "4.0.13",
+    "react-redux": "9.1.2",
+    "zod": "3.23.8"
+  },
+  "devDependencies": {
+    "@playwright/test": "1.48.2",
+    "@types/node": "20.11.30",
+    "@types/react": "18.2.66",
+    "@types/react-dom": "18.2.22",
+    "autoprefixer": "10.4.20",
+    "eslint": "8.57.0",
+    "eslint-config-next": "14.2.10",
+    "lighthouse": "12.1.0",
+    "@lhci/cli": "0.13.0",
+    "postcss": "8.4.49",
+    "tailwindcss": "3.4.13",
+    "typescript": "5.6.2"
+  }
+}

@@ -1,0 +1,45 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --bg: #0b0f14;
+  --fg: #d1d5db;
+}
+
+html, body, #__next { height: 100%; }
+
+body {
+  @apply bg-canvas text-gray-300 antialiased;
+  font-feature-settings: "ss01" 1, "cv01" 1;
+}
+
+/* Shimmer skeleton */
+.skeleton {
+  position: relative;
+  overflow: hidden;
+  background: linear-gradient(90deg, rgba(255,255,255,0.07), rgba(255,255,255,0.12), rgba(255,255,255,0.07));
+  background-size: 200% 100%;
+  animation: shimmer 1.6s infinite;
+}
+@keyframes shimmer {
+  0% { background-position: 200% 0; }
+  100% { background-position: -200% 0; }
+}
+
+/* Price glow transitions */
+.price-up { transition: background-color 600ms ease, color 600ms ease; background-color: rgba(34,197,94,0.12); }
+.price-down { transition: background-color 600ms ease, color 600ms ease; background-color: rgba(239,68,68,0.12); }
+
+/* Table baseline to reduce layout shift */
+.token-col { width: 18rem; }
+.price-col { width: 8rem; }
+.change-col { width: 6rem; }
+.liq-col { width: 7rem; }
+.vol-col { width: 7rem; }
+
+/* Button base */
+.btn {
+  @apply inline-flex items-center justify-center rounded-xl px-3 py-2 text-sm font-medium bg-card hover:bg-gray-800/60 transition shadow-soft border border-border;
+}
+.btn-ghost { @apply bg-transparent hover:bg-white/5 border-transparent; }
