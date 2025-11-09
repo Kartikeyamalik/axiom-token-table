@@ -115,3 +115,10 @@ scripts/
 ## Notes
 - The `components/ui` directory includes minimal shadcn-like primitives, so you don't need to run `shadcn` CLI for this task.
 - Replace `lib/mockData.ts` with real API wiring later; the socket can be switched to a real WS endpoint and the `wireSocket` helper will still apply.
+
+## Deliverables
+
+- GitHub Repo: https://github.com/Kartikeyamalik/axiom-token-table
+- Live Deployment: https://axiom-token-table-project.vercel.app/
+- Responsive Layout Snapshots: Added inside `/snapshots` directory
+- Video Demo (1-2 min): LINK WILL BE ADDED AFTER RECORDING
