@@ -21,22 +21,28 @@ class MockSocket {
     if (this.interval) clearInterval(this.interval)
     this.interval = undefined
   }
-  on(cb: Listener) { this.listeners.add(cb); return () => this.listeners.delete(cb) }
+  on(cb: Listener) {
+  this.listeners.add(cb);
+  return () => { this.listeners.delete(cb); }; // return void, not boolean
+}
+
 }
 
 export const socket = new MockSocket()
 
 export function wireSocket(queryClient: QueryClient) {
-  socket.start()
-  return socket.on((patch) => {
+  socket.start();
+  const off = socket.on((patch) => {
     queryClient.setQueryData<Token[]>(['tokens'], (prev) => {
-      if (!prev) return prev
+      if (!prev) return prev;
       return prev.map(t => {
-        if (t.id !== patch.id) return t
-        const newPrice = Math.max(0.0000001, t.price * (1 + (patch.price ?? 0)))
-        const newChange = t.change24h + (patch.change24h ?? 0)
-        return { ...t, price: newPrice, change24h: newChange }
-      })
-    })
-  })
+        if (t.id !== patch.id) return t;
+        const newPrice = Math.max(0.0000001, t.price * (1 + (patch.price ?? 0)));
+        const newChange = t.change24h + (patch.change24h ?? 0);
+        return { ...t, price: newPrice, change24h: newChange };
+      });
+    });
+  });
+  return () => { off(); }; // explicit void cleanup
 }
+

@@ -2,7 +2,7 @@
 
 import { Card, CardBody, CardHeader } from '@/components/ui/Card'
 import { useAppSelector } from '@/store/hooks'
-import { useQuery, useQueryClient } from '@tanstack/react-query'
+import { useSuspenseQuery, useQueryClient } from '@tanstack/react-query'
 import { fetchTokens } from '@/lib/api'
 import { wireSocket } from '@/lib/ws'
 import { useEffect, useMemo } from 'react'
@@ -19,7 +19,7 @@ function useSocketUpdates() {
 }
 
 export function TokenTable() {
-  const { data, isLoading, isError, error } = useQuery({ queryKey: ['tokens'], queryFn: fetchTokens, suspense: true })
+  const { data } = useSuspenseQuery({ queryKey: ['tokens'], queryFn: fetchTokens })
   useSocketUpdates()
 
   const tab = useAppSelector(s => s.ui.activeTab)
@@ -41,7 +41,6 @@ export function TokenTable() {
     return sorted
   }, [data, tab, sortKey, sortDir])
 
-  if (isError) throw error
 
   return (
     <Card>

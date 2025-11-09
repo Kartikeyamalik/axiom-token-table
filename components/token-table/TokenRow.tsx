@@ -25,7 +25,7 @@ function ChainBadge({ chain }: { chain: Token['chain'] }) {
   return <span className="rounded-md border border-border px-1.5 py-0.5 text-[11px] text-gray-400">{text}</span>
 }
 
-function _TokenRow({ t }: { t: Token }) {
+function TokenRowInner({ t }: { t: Token }) {
   const priceKlass = usePriceFlash(t.price)
 
   return (
@@ -80,4 +80,5 @@ function _TokenRow({ t }: { t: Token }) {
   )
 }
 
-export const TokenRow = memo(_TokenRow)
+export const TokenRow = memo(TokenRowInner)
+
