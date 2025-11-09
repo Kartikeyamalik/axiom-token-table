@@ -1,4 +1,4 @@
-﻿node_modules
+node_modules
 .next
 out
 dist
@@ -11,4 +11,3 @@ pnpm-debug.log*
 .env
 .env.*.local
 .playwright
-snapshots
